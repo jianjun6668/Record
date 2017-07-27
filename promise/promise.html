@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		let promise =function(data){
+			return new Promise(function(reslove,reject){
+				if(data>100){
+					reslove('这个数字大于100');
+				}else{
+					reject('这个数字小于100');
+				}
+			})
+		}
+		promise(99).then(val=>{
+			console.log(val)
+			return '下一步'
+		}).then(val=>console.log(val))
+		.catch(val=>console.log(val));
+	</script>
+</body>
+</html>
