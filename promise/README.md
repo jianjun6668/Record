@@ -22,11 +22,13 @@ let promise=function(data){
 	promise(101)
 	.then(val=>console.log(val))
 	.catch(val=>console.log());
+
 	// '这个数字大于100'
 
 	promise(99)
 	.then(val=>console.log(val))
 	.catch(val=>console.log());
+
 	// '这个数字小于于100'
 ```
 
@@ -51,15 +53,6 @@ let promise=function(data){
 4. 如果有错误，会跳过前面的then
 
 ```js
-let promise=function(data){
-	return new Promise(function(reslove,reject){
-		if(data>100){
-			reslove('这个数字大于100');
-		}else{
-			reject('这个数字小于100');
-		}
-	})
-}
 promise(99)
 .then(val=>{
 	console.log(val);
@@ -67,6 +60,7 @@ promise(99)
 })
 .then(val=>console.log(val))
 .catch(val=>console.log(val));
+
 //'这个数字小于100'
 ```
 
