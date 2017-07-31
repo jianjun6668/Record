@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function A(){
+			this.name='spring';
+			this.showName=function(a){
+				alert(this.name);
+			}
+		}
+		function B(){
+			this.name='new Spring';
+		}
+
+		let a=new A();
+		let b=new B();
+
+		a.showName.call(b,'11111'); // new Spring
+	</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function Class1(){  
+		    this.showSub = function(a,b){  
+		        alert(a-b);  
+		    }  
+		}  
+		  
+		function Class2(){  
+		    this.showAdd = function(a,b){  
+		        alert(a+b);  
+		    }  
+		}  
+		  
+		function Class3(){  
+		    Class1.call(this);  
+		    Class2.call(this);  
+		} 
+		var a=new Class3();
+		console.log(a)
+	</script>
+</body>
+</html>
