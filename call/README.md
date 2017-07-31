@@ -98,7 +98,7 @@ function Class3(){
 var a=new Class3();
 console.log(a)  
 ```
-![](https://github.com/jianjun6668/Record/img/4.jpg)  
+![](https://github.com/jianjun6668/Record/tree/master/call/img/4.jpg)  
 
 
  很简单，使用两个 call 就实现多重继承了
