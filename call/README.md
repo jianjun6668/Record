@@ -54,7 +54,7 @@ let b=new B();
 a.showName.call(b,'11111'); // new Spring 
  ```  
 
- call 的意思是把 animal 的方法放到cat上执行，原来cat是没有showName() 方法，现在是把animal 的showName()方法放到 cat上来执行，所以this.name 应该是 Cat
+ call 的意思是把 A 的方法放到cat上执行，原来B是没有showName() 方法，现在是把A 的showName()方法放到 B上来执行，所以this.name 应该是 Cat
  
 3. 实现继承
 
