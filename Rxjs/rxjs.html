@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="https://unpkg.com/@reactivex/rxjs@version/dist/global/Rx.js"></script>
+</head>
+<body>
+	<script type="text/javascript">
+		let foo=Rx.Observalbe.create(function(){
+			try{
+				observer.next(1);         // 通知：发出一个值，比如数字，字符串，对象等等。
+				observer.Complete('end'); // 通知:发出一个js错误或者异常。
+				observer.next(2);		  // 在complate后面的不会推送
+			}catch(err){
+				observer.Error(err);    // 通知：不发出任何值，表示流的结束。
+			}	
+		});
+		foo.subscribe((x)=>{
+			console.log(x);
+		})
+	</script>
+</body>
+</html>
