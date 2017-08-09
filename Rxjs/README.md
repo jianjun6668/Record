@@ -21,7 +21,7 @@ Next通知是最重要也是最常用的类型：他代表了实际推送给Obse
 
 ```js
 foo.subscribe((x)=>{
-	console.log(x); // 1 2
+	console.log(x); // 1 2 end
 })
 ```
 
@@ -58,6 +58,58 @@ setTimeout(() => {
 // first: 1
 // second: 2
 ```
+
 Subscription也有一个名为remove(otherSubscription)的方法，用来撤销已经添加到其中的其他Subscription。
+
+## Subject
+
+每一个Subject就是一个Observable流，同时也是一个观察者(Observer)。
+
+```js
+
+var subject = new Rx.Subject();
+
+subject.subscribe({
+  next: (v) => console.log('observerA: ' + v)
+});
+subject.subscribe({
+  next: (v) => console.log('observerB: ' + v)
+});
+
+subject.next(1);
+subject.next(2);
+
+// observerA: 1
+// observerB: 1
+// observerA: 2
+// observerB: 2
+
+```
+
+因为Subject是一个Observer，因此你也可以将它作为任何Observable的subscribe()的参数，订阅这个Observable流，就像下面这样：
+
+```js
+
+var subject = new Rx.Subject();
+
+subject.subscribe({
+  next: (v) => console.log('observerA: ' + v)
+});
+subject.subscribe({
+  next: (v) => console.log('observerB: ' + v)
+});
+
+var observable = Rx.Observable.from([1, 2, 3]);
+
+observable.subscribe(subject); 
+
+// observerA: 1
+// observerB: 1
+// observerA: 2
+// observerB: 2
+// observerA: 3
+// observerB: 3
+
+```
 
 
