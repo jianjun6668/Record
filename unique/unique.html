@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// 数组去重
+		var arr=[1,2,32,1,'s',3,'r',123,12,2,1,123];
+		var arr1=arr.filter((e,l,arr)=>{
+			return l==arr.indexOf(e)
+		});
+		console.log(arr1)
+		//----------------------------
+		var arr2=[...new Set(arr)]
+		console.log(arr2)
+	</script>
+</body>
+</html>
