@@ -30,26 +30,34 @@ SELECT * FROM 表 WHERE 条件
 子句：
 ### WHERE 条件
 
+```js
 WHERE name='blue'
 WHERE age>18
 WHERE age<=18
 WHERE age>=18 AND score<60
 WHERE cach>100 OR score>10000
+```
 
 ### ORDER 排序
+
+```js
 ORDER BY age ASC/DESC
   ASC-升序(从小到大)
   DESC-降序(从大到小)
-
+```js
 
 ORDER BY price ASC
 
-*价格(price)升序排序，如果价格相同，再按销量(sales)降序排序
+* 价格(price)升序排序，如果价格相同，再按销量(sales)降序排序
+
+```js
 ORDER BY price ASC, sales DESC
+```
 
 
 ### GROUP	聚类-合并相同
 
+```js
 * 统计每个班人数
 ID	class	name
 "1"	"1"	"小明"
@@ -60,6 +68,7 @@ ID	class	name
 "6"	"3"	"小四"
 "7"	"1"	"小刘"
 "8"	"1"	"小花"
+
 
 SELECT * FROM student_table;
 ID	class	name
@@ -79,8 +88,11 @@ ID	class	name
 "5"	"3"	"小强"
 
 SELECT class FROM student_table GROUP BY class;
+```
 
 * 统计每个班的平均分
+
+```js
 >SELECT * FROM student_table;
 ID	class	name	score
 1	1	小明	34
@@ -103,8 +115,11 @@ class	score
 1	54.25
 2	98.5
 3	56.5
+```
 
 *每个班级的最高、最低分
+
+```js
 >SELECT class,MAX(score),MIN(score) FROM student_table GROUP BY class;
 ID	class	name	score
 1	1	小明	34
@@ -138,7 +153,7 @@ name	SUM(price)
 blue	12
 
 SELECT name,SUM(price) FROM sales_table GROUP BY name ORDER BY SUM(price) ASC;
-
+```
 
 ### LIMIT-限制输出
 
@@ -162,8 +177,10 @@ LIMIT 5,8;	从5开始，要8个
 WHERE GROUP ORDER LIMIT
 筛选  合并  排序  限制
 
+```js
 SELECT class,COUNT(class) FROM student_table
 WHERE score>60
 GROUP BY class
 ORDER BY COUNT(class) DESC
 LIMIT 2;
+```
