@@ -12,19 +12,19 @@ DELETE FROM 表 WHERE 条件
 
 ```js
 INSERT INTO 表 (字段列表) VALUES(值列表)
-```js
+```
 
 3. 改	UPDATE
 
 ```js
 UPDATE 表 SET 字段=值,字段=值,... WHERE 条件
-```js
+```
 
 4. 查	SELECT
 
 ```js
 SELECT * FROM 表 WHERE 条件
-```js
+```
 
 
 子句：
