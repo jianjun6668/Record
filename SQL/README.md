@@ -44,9 +44,7 @@ WHERE cach>100 OR score>10000
 ORDER BY age ASC/DESC
   ASC-升序(从小到大)
   DESC-降序(从大到小)
-```js
-
-ORDER BY price ASC
+```
 
 * 价格(price)升序排序，如果价格相同，再按销量(sales)降序排序
 
