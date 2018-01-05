@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style lang="">
+        ul,
+        li {
+            padding: 0;
+            margin: 0;
+        }
+
+        ul {
+            width: 100%;
+            clear: both;
+        }
+
+        li {
+            width: 100px;
+            height: 100px;
+            background: black;
+            float: left;
+            margin: 10px;
+            list-style: none;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>请在高版本浏览器下浏览</h2>
+    <ul>
+        <li draggable="true" class="drag">1
+        </li>
+        <li draggable="true" class="drag">2</li>
+        <li draggable="true" class="drag">3</li>
+        <li draggable="true" class="drag">4</li>
+        <li draggable="true" class="drag">5</li>
+        <li draggable="true" class="drag">6</li>
+        <li draggable="true" class="drag">7</li>
+        <li draggable="true" class="drag">8</li>
+        <li draggable="true" class="drag">9</li>
+        <li draggable="true" class="drag">10</li>
+    </ul>
+    <ul id="box">
+        <li draggable="true" class="drag1">1</li>
+        <li draggable="true" class="drag1">2</li>
+        <li draggable="true" class="drag1">3</li>
+        <li draggable="true" class="drag1">4</li>
+        <li draggable="true" class="drag1">5</li>
+        <li draggable="true" class="drag1">6</li>
+        <li draggable="true" class="drag1">7</li>
+        <li draggable="true" class="drag1">8</li>
+        <li draggable="true" class="drag1">9</li>
+        <li draggable="true" class="drag1">10</li>
+    </ul>
+    <script>
+        let aDrag = document.querySelectorAll('.drag');
+        let aDrag1 = document.querySelectorAll('.drag1');
+        let saveEle = null;
+        let saveEle1 = null;
+        let oBox = document.querySelector('#box');
+        for (let i = 0; i < aDrag.length; i++) {
+            aDrag[i].ondragstart = function (ev) {
+                ev.dataTransfer.setData("Text", ev.target.innerText);
+                saveEle = ev.target;
+                console.log(i)
+            }.bind(i)
+            aDrag[i].ondragover = function (ev) {
+                ev.preventDefault();
+            }
+            aDrag[i].ondrop = function (ev) {
+                ev.preventDefault();
+                var data = ev.dataTransfer.getData("Text");
+                saveEle.innerText = ev.target.innerText;
+                ev.target.innerText = data;
+            }
+        }
+
+
+        for (let i = 0; i < aDrag1.length; i++) {
+            aDrag1[i].ondragstart = function (ev) {
+                ev.dataTransfer.setData("Text", ev.target.innerText);
+                saveEle1 = ev.target;
+            }.bind(i)
+            aDrag1[i].ondragover = function (ev) {
+                ev.preventDefault();
+            }
+            aDrag1[i].ondrop = function (ev) {
+                ev.preventDefault();
+                var data = ev.dataTransfer.getData("Text");
+                let oLi = document.createElement('li');
+                oLi.innerText = data;
+                ev.target.before(oLi);
+                saveEle1.remove();
+            }
+        }
+    </script>
+</body>
+
+</html>
